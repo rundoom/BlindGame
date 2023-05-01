@@ -14,9 +14,12 @@ position = Vector2(299, 206)
 
 [node name="BaseItem2" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(533, 128)
+item_name = &"A bit of"
 
 [node name="BaseItem3" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(435, 197)
+item_name = &"Something"
 
 [node name="BaseItem4" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(298, 234)
+item_name = &"TestItem"

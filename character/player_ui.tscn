@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw0vj1wg1lonw"]
+
+[ext_resource type="Script" path="res://character/PlayerUi.gd" id="1_kd4oi"]
+
+[node name="PlayerUI" type="CanvasLayer"]
+script = ExtResource("1_kd4oi")
+
+[node name="ItemsList" type="HBoxContainer" parent="."]
+offset_right = 119.0
+offset_bottom = 40.0

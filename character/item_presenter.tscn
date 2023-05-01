@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7rgs1j8cueln"]
+
+[ext_resource type="Script" path="res://character/ItemPresenter.gd" id="1_t60jd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_416kg"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ItemPresenter" type="PanelContainer"]
+offset_right = 127.0
+offset_bottom = 37.0
+script = ExtResource("1_t60jd")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="."]
+layout_mode = 2
+text = "test"
+label_settings = SubResource("LabelSettings_416kg")
+horizontal_alignment = 1
+vertical_alignment = 1

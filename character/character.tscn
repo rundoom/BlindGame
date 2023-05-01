@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://06njwdlixrtj"]
+[gd_scene load_steps=6 format=3 uid="uid://06njwdlixrtj"]
 
 [ext_resource type="Script" path="res://character/Character.gd" id="1_jpj3x"]
 [ext_resource type="Script" path="res://character/ItemPicker.gd" id="2_5jgf3"]
+[ext_resource type="PackedScene" uid="uid://bw0vj1wg1lonw" path="res://character/player_ui.tscn" id="3_6r1qt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwv5g"]
 
@@ -16,11 +17,15 @@ script = ExtResource("1_jpj3x")
 shape = SubResource("CircleShape2D_pwv5g")
 
 [node name="ItemPicker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 monitorable = false
 script = ExtResource("2_5jgf3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPicker"]
 shape = SubResource("CircleShape2D_ovbci")
+
+[node name="PlayerUI" parent="." instance=ExtResource("3_6r1qt")]
 
 [connection signal="area_entered" from="ItemPicker" to="ItemPicker" method="_on_area_entered"]
 [connection signal="area_exited" from="ItemPicker" to="ItemPicker" method="_on_area_exited"]
