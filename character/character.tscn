@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://06njwdlixrtj"]
+
+[ext_resource type="Script" path="res://character/Character.gd" id="1_jpj3x"]
+[ext_resource type="Script" path="res://character/ItemPicker.gd" id="2_5jgf3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pwv5g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ovbci"]
+radius = 38.0132
+
+[node name="Character" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_jpj3x")
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pwv5g")
+
+[node name="ItemPicker" type="Area2D" parent="."]
+monitorable = false
+script = ExtResource("2_5jgf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPicker"]
+shape = SubResource("CircleShape2D_ovbci")
+
+[connection signal="area_entered" from="ItemPicker" to="ItemPicker" method="_on_area_entered"]
+[connection signal="area_exited" from="ItemPicker" to="ItemPicker" method="_on_area_exited"]

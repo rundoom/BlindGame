@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbpcdhr5jkaj5"]
+
+[ext_resource type="PackedScene" uid="uid://06njwdlixrtj" path="res://character/character.tscn" id="1_o0jvq"]
+[ext_resource type="PackedScene" uid="uid://cubhfvfifrmjd" path="res://items/base_item.tscn" id="2_3l0hn"]
+
+[node name="TileMap" type="TileMap" groups=["world"]]
+format = 2
+
+[node name="Character" parent="." instance=ExtResource("1_o0jvq")]
+position = Vector2(274, 128)
+
+[node name="BaseItem" parent="." instance=ExtResource("2_3l0hn")]
+position = Vector2(299, 206)
+
+[node name="BaseItem2" parent="." instance=ExtResource("2_3l0hn")]
+position = Vector2(533, 128)
+
+[node name="BaseItem3" parent="." instance=ExtResource("2_3l0hn")]
+position = Vector2(435, 197)
+
+[node name="BaseItem4" parent="." instance=ExtResource("2_3l0hn")]
+position = Vector2(298, 234)
