@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var world = get_tree().get_first_node_in_group("world")
 var stored_items: Array[BaseItem] = []
 @onready var player_ui := $PlayerUI as PlayerUI
+var last_rotation = 0
 
 
 func _physics_process(delta: float) -> void:
@@ -13,6 +14,9 @@ func _physics_process(delta: float) -> void:
 	var vrt_dir := Input.get_axis("ui_up", "ui_down")
 	
 	velocity = Vector2(hrz_dir, vrt_dir).normalized() * SPEED
+	if velocity != Vector2.ZERO: rotation = velocity.angle()
+	
+	last_rotation = rotation
 	move_and_slide()
 
 
