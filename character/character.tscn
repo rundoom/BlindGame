@@ -46,4 +46,3 @@ debug_color = Color(0.854902, 0, 0.372549, 0.709804)
 
 [connection signal="area_entered" from="ItemPicker" to="ItemPicker" method="_on_area_entered"]
 [connection signal="area_exited" from="ItemPicker" to="ItemPicker" method="_on_area_exited"]
-[connection signal="body_entered" from="WallCrusher" to="WallCrusher" method="_on_body_entered"]
