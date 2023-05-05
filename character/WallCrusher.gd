@@ -7,6 +7,9 @@ extends Area2D
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("dig"):
+		var indicator = create_tween()
+		indicator.tween_property(self, "modulate", Color.BLACK, 0.1)
+		indicator.tween_property(self, "modulate", Color.WHITE, 0.1)
 		var phys_params = PhysicsShapeQueryParameters2D.new()
 		phys_params.shape = $CollisionShape2D.shape
 		phys_params.transform = $CollisionShape2D.global_transform
