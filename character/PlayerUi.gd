@@ -3,6 +3,7 @@ class_name PlayerUI
 
 
 var ItemPresenterSc = preload("res://character/item_presenter.tscn")
+@onready var player := get_tree().get_first_node_in_group("player") as Player
 var energy:
 	set(value):
 		$EnergyBar.value = value
@@ -11,6 +12,8 @@ var energy:
 func add_item(item: BaseItem):
 	var item_presenter = ItemPresenterSc.instantiate() as ItemPresenter
 	item_presenter.item = item
+	item_presenter.drop_item.connect(remove_item)
+	item_presenter.drop_item.connect(player.drop_item)
 	$ItemsList.add_child(item_presenter)
 	
 	

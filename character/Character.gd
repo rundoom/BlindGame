@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 
 @export var SPEED = 200
@@ -38,10 +39,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("ui_cancel") and !stored_items.is_empty():
 		var item = stored_items[0]
-		item.global_position = global_position
-		world.add_child(item)
-		stored_items.erase(item)
-		player_ui.remove_item(item)
+		drop_item(item)
 		
 	if event.is_action_pressed("LMB") and energy >= 5:
 		var phys_params = PhysicsShapeQueryParameters2D.new()
@@ -61,3 +59,8 @@ func _unhandled_input(event: InputEvent) -> void:
 					energy -= 5
 					break
 		
+		
+func drop_item(item: BaseItem):
+	item.global_position = global_position
+	world.add_child(item)
+	stored_items.erase(item)
