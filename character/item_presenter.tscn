@@ -21,3 +21,5 @@ layout_mode = 2
 texture_filter = 1
 layout_mode = 2
 texture = SubResource("AtlasTexture_2ihxm")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
