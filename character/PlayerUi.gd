@@ -3,6 +3,9 @@ class_name PlayerUI
 
 
 var ItemPresenterSc = preload("res://character/item_presenter.tscn")
+var energy:
+	set(value):
+		$EnergyBar.value = value
 
 
 func add_item(item: BaseItem):

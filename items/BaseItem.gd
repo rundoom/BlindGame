@@ -2,7 +2,7 @@ extends Area2D
 class_name BaseItem
 
 @export var item_name: StringName
-
+@export var image: AtlasTexture
 
 func _ready() -> void:
 	$Name.text = item_name

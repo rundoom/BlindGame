@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cubhfvfifrmjd"]
+[gd_scene load_steps=4 format=3 uid="uid://cubhfvfifrmjd"]
 
 [ext_resource type="Script" path="res://items/BaseItem.gd" id="1_mn1i0"]
+[ext_resource type="Texture2D" uid="uid://bmvekdti644br" path="res://items/base_item.tres" id="2_2d5kr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y3rcp"]
 
@@ -9,6 +10,7 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_mn1i0")
 item_name = &"Basic"
+image = ExtResource("2_2d5kr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_y3rcp")
