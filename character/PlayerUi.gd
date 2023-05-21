@@ -13,6 +13,8 @@ func add_item(item: BaseItem):
 	var item_presenter = ItemPresenterSc.instantiate() as ItemPresenter
 	item_presenter.item = item
 	item_presenter.drop_item.connect(remove_item)
+	item_presenter.destroy_item.connect(remove_item)
+	item_presenter.destroy_item.connect(player.destroy_item)
 	item_presenter.drop_item.connect(player.drop_item)
 	$ItemsList.add_child(item_presenter)
 	

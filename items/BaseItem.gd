@@ -3,6 +3,11 @@ class_name BaseItem
 
 @export var item_name: StringName
 @export var image: AtlasTexture
+@onready var player := get_tree().get_first_node_in_group("player") as Player
+@export var is_activatable = false
+
+signal destroy_item(item: BaseItem)
+
 
 func _ready() -> void:
 	$Name.text = item_name
@@ -14,3 +19,7 @@ func show_name():
 	
 func hide_name():
 	$Name.hide()
+
+
+func activate():
+	pass

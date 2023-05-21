@@ -64,3 +64,8 @@ func drop_item(item: BaseItem):
 	item.global_position = global_position
 	world.add_child(item)
 	stored_items.erase(item)
+
+
+func destroy_item(item: BaseItem):
+	stored_items.erase(item)
+	item.queue_free()

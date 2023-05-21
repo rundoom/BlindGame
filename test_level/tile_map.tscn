@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbpcdhr5jkaj5"]
+[gd_scene load_steps=14 format=3 uid="uid://bbpcdhr5jkaj5"]
 
 [ext_resource type="Texture2D" uid="uid://yxjr8t2fqn24" path="res://urizen-onebit-tileset.png" id="1_4ovnk"]
 [ext_resource type="Texture2D" uid="uid://n45u7nvctvg5" path="res://items/wood.tres" id="1_afbd0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://06njwdlixrtj" path="res://character/character.tscn" id="1_o0jvq"]
 [ext_resource type="PackedScene" uid="uid://cubhfvfifrmjd" path="res://items/base_item.tscn" id="2_3l0hn"]
 [ext_resource type="Script" path="res://test_level/TileLevel.gd" id="2_in6e2"]
+[ext_resource type="PackedScene" uid="uid://dg6jrwbg0ffds" path="res://items/food.tscn" id="7_rs11y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gukie"]
 texture = ExtResource("1_4ovnk")
@@ -7533,22 +7534,22 @@ custom_data_layer_2/name = "icon"
 custom_data_layer_2/type = 24
 sources/0 = SubResource("TileSetAtlasSource_gukie")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wyldr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bji4"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(79, 170, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1d5ta"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2c5c"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(79, 170, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aatl5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_saguu"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(79, 170, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k470w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfjca"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(92, 209, 12, 12)
@@ -7565,19 +7566,22 @@ position = Vector2(179, 159)
 
 [node name="BaseItem" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(299, 206)
-image = SubResource("AtlasTexture_wyldr")
+image = SubResource("AtlasTexture_0bji4")
 
 [node name="BaseItem2" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(533, 128)
 item_name = &"A bit of"
-image = SubResource("AtlasTexture_1d5ta")
+image = SubResource("AtlasTexture_e2c5c")
 
 [node name="BaseItem3" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(435, 197)
 item_name = &"Something"
-image = SubResource("AtlasTexture_aatl5")
+image = SubResource("AtlasTexture_saguu")
 
 [node name="BaseItem4" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(298, 234)
 item_name = &"TestItem"
-image = SubResource("AtlasTexture_k470w")
+image = SubResource("AtlasTexture_mfjca")
+
+[node name="Food" parent="." instance=ExtResource("7_rs11y")]
+position = Vector2(531.894, 252.932)
