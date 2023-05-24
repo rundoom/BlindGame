@@ -8,7 +8,12 @@ class_name Player
 var stored_items: Array[BaseItem] = []
 @onready var player_ui := $PlayerUI as PlayerUI
 @onready var space_state = get_world_2d().direct_space_state
-var energy := 100:
+var max_energy := 10:
+	set(value):
+		max_energy = value
+		player_ui.max_energy = value
+		
+var energy := 10:
 	set(value):
 		energy = value
 		player_ui.energy = value
@@ -37,11 +42,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		stored_items.append(item)
 		player_ui.add_item(item)
 		
-	if event.is_action_pressed("ui_cancel") and !stored_items.is_empty():
-		var item = stored_items[0]
-		drop_item(item)
-		
-	if event.is_action_pressed("LMB") and energy >= 5:
+	if event.is_action_pressed("LMB"):
 		var phys_params = PhysicsShapeQueryParameters2D.new()
 		phys_params.shape = $ItemPicker/CollisionShape2D.shape
 		phys_params.transform = $ItemPicker/CollisionShape2D.global_transform
@@ -54,9 +55,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			var cell_coords = world.local_to_map(it)
 			if cell_coords not in used_cells:
 				used_cells[cell_coords] = null
-				if world.local_to_map(event.position) == cell_coords:
-					world.disrupt_tile(cell_coords, 1)
-					energy -= 5
+				var tile_hp = world.get_tile_hp(cell_coords)
+				if world.local_to_map(event.position) == cell_coords and tile_hp != -1 and energy >= tile_hp:
+					world.disrupt_tile(cell_coords)
+					energy -= tile_hp
 					break
 		
 		

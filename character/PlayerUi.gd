@@ -8,6 +8,10 @@ var energy:
 	set(value):
 		$EnergyBar.value = value
 
+var max_energy:
+	set(value):
+		$EnergyBar.max_value = value
+
 
 func add_item(item: BaseItem):
 	var item_presenter = ItemPresenterSc.instantiate() as ItemPresenter

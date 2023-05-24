@@ -2,4 +2,4 @@ extends BaseItem
 
 
 func activate():
-	player.energy = 100
+	player.energy = 10

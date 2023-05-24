@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://c10v0etrln3d3"]
+
+[ext_resource type="Script" path="res://tree.gd" id="1_c06xk"]
+[ext_resource type="Shader" path="res://black_transparent.gdshader" id="1_o5x1a"]
+[ext_resource type="Texture2D" uid="uid://yxjr8t2fqn24" path="res://urizen-onebit-tileset.png" id="2_vcv7n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xvm05"]
+shader = ExtResource("1_o5x1a")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6dra"]
+atlas = ExtResource("2_vcv7n")
+region = Rect2(1, 53, 12, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ened"]
+radius = 6.0
+
+[node name="Tree" type="StaticBody2D"]
+collision_layer = 5
+input_pickable = true
+script = ExtResource("1_c06xk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_xvm05")
+texture = SubResource("AtlasTexture_a6dra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1ened")
