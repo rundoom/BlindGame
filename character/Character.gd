@@ -43,23 +43,30 @@ func _unhandled_input(event: InputEvent) -> void:
 		player_ui.add_item(item)
 		
 	if event.is_action_pressed("LMB"):
-		var phys_params = PhysicsShapeQueryParameters2D.new()
-		phys_params.shape = $ItemPicker/CollisionShape2D.shape
-		phys_params.transform = $ItemPicker/CollisionShape2D.global_transform
-		phys_params.collision_mask = 4
+		var point_params := PhysicsPointQueryParameters2D.new()
+		point_params.position = event.position
+		point_params.collision_mask = 8
+		var collisions = space_state.intersect_point(point_params)
+		if !collisions.is_empty():
+			collisions[0].collider.activate()
+		else:
+			var phys_params = PhysicsShapeQueryParameters2D.new()
+			phys_params.shape = $ItemPicker/CollisionShape2D.shape
+			phys_params.transform = $ItemPicker/CollisionShape2D.global_transform
+			phys_params.collision_mask = 4
 
-		var collide_points = space_state.collide_shape(phys_params, 128)
+			var collide_points = space_state.collide_shape(phys_params, 128)
 
-		var used_cells = {}
-		for it in collide_points:
-			var cell_coords = world.local_to_map(it)
-			if cell_coords not in used_cells:
-				used_cells[cell_coords] = null
-				var tile_hp = world.get_tile_hp(cell_coords)
-				if world.local_to_map(event.position) == cell_coords and tile_hp != -1 and energy >= tile_hp:
-					world.disrupt_tile(cell_coords)
-					energy -= tile_hp
-					break
+			var used_cells = {}
+			for it in collide_points:
+				var cell_coords = world.local_to_map(it)
+				if cell_coords not in used_cells:
+					used_cells[cell_coords] = null
+					var tile_hp = world.get_tile_hp(cell_coords)
+					if world.local_to_map(event.position) == cell_coords and tile_hp != -1 and energy >= tile_hp:
+						world.disrupt_tile(cell_coords)
+						energy -= tile_hp
+						break
 		
 		
 func drop_item(item: BaseItem):
