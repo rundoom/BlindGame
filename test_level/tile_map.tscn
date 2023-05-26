@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbpcdhr5jkaj5"]
+[gd_scene load_steps=18 format=3 uid="uid://bbpcdhr5jkaj5"]
 
 [ext_resource type="Texture2D" uid="uid://yxjr8t2fqn24" path="res://urizen-onebit-tileset.png" id="1_4ovnk"]
 [ext_resource type="Texture2D" uid="uid://n45u7nvctvg5" path="res://items/wood.tres" id="1_afbd0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://test_level/TileLevel.gd" id="2_in6e2"]
 [ext_resource type="PackedScene" uid="uid://dg6jrwbg0ffds" path="res://items/food.tscn" id="7_rs11y"]
 [ext_resource type="PackedScene" uid="uid://c10v0etrln3d3" path="res://tree.tscn" id="8_moaej"]
+[ext_resource type="PackedScene" uid="uid://bg5iqmpg0wclq" path="res://items/axe.tscn" id="9_y0p5i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gukie"]
 texture = ExtResource("1_4ovnk")
@@ -7536,30 +7537,35 @@ custom_data_layer_2/name = "icon"
 custom_data_layer_2/type = 24
 sources/0 = SubResource("TileSetAtlasSource_gukie")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w1ac5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hig6p"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(79, 170, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_febp7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xupo"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(79, 170, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bov5a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tos5w"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(79, 170, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7r70e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vch0p"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(92, 209, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y13et"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lxjv"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(14, 209, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3pvi"]
+resource_local_to_scene = true
+atlas = ExtResource("1_4ovnk")
+region = Rect2(547, 274, 12, 12)
 
 [node name="TileMap" type="TileMap" groups=["world"]]
 texture_filter = 1
@@ -7573,26 +7579,30 @@ position = Vector2(179, 159)
 
 [node name="BaseItem" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(299, 206)
-image = SubResource("AtlasTexture_w1ac5")
+image = SubResource("AtlasTexture_hig6p")
 
 [node name="BaseItem2" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(533, 128)
 item_name = &"A bit of"
-image = SubResource("AtlasTexture_febp7")
+image = SubResource("AtlasTexture_3xupo")
 
 [node name="BaseItem3" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(435, 197)
 item_name = &"Something"
-image = SubResource("AtlasTexture_bov5a")
+image = SubResource("AtlasTexture_tos5w")
 
 [node name="BaseItem4" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(298, 234)
 item_name = &"TestItem"
-image = SubResource("AtlasTexture_7r70e")
+image = SubResource("AtlasTexture_vch0p")
 
 [node name="Food" parent="." instance=ExtResource("7_rs11y")]
 position = Vector2(531.894, 252.932)
-image = SubResource("AtlasTexture_y13et")
+image = SubResource("AtlasTexture_3lxjv")
 
 [node name="Tree" parent="." instance=ExtResource("8_moaej")]
 position = Vector2(229, 288)
+
+[node name="Axe" parent="." instance=ExtResource("9_y0p5i")]
+position = Vector2(383, 242)
+image = SubResource("AtlasTexture_r3pvi")

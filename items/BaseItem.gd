@@ -5,6 +5,7 @@ class_name BaseItem
 @export var image: AtlasTexture
 @onready var player := get_tree().get_first_node_in_group("player") as Player
 @export var is_activatable = false
+@export var is_single_use = true
 
 signal destroy_item(item: BaseItem)
 
