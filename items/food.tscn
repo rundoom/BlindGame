@@ -14,3 +14,4 @@ script = ExtResource("2_ldcbi")
 item_name = &"Food"
 image = SubResource("AtlasTexture_p36he")
 is_activatable = true
+is_single_use = null

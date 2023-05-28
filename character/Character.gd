@@ -8,6 +8,8 @@ class_name Player
 var stored_items: Array[BaseItem] = []
 @onready var player_ui := $PlayerUI as PlayerUI
 @onready var space_state = get_world_2d().direct_space_state
+var used_tool: BaseItem
+
 var max_energy := 10:
 	set(value):
 		max_energy = value
@@ -42,7 +44,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		stored_items.append(item)
 		player_ui.add_item(item)
 		
+	if event.is_action_pressed("RMB"): used_tool = null
+		
 	if event.is_action_pressed("LMB"):
+		if used_tool == null:
+			interact_empty_hand(event as InputEventMouseButton)
+		else: 
+			used_tool.activate(event)
+		
+		
+func interact_empty_hand(event: InputEventMouseButton):
 		var point_params := PhysicsPointQueryParameters2D.new()
 		point_params.position = event.position
 		point_params.collision_mask = 8
@@ -50,24 +61,28 @@ func _unhandled_input(event: InputEvent) -> void:
 		if !collisions.is_empty():
 			collisions[0].collider.activate()
 		else:
-			var phys_params = PhysicsShapeQueryParameters2D.new()
-			phys_params.shape = $ItemPicker/CollisionShape2D.shape
-			phys_params.transform = $ItemPicker/CollisionShape2D.global_transform
-			phys_params.collision_mask = 4
+			interact_tileset(event)
+						
+						
+func interact_tileset(event: InputEventMouseButton):
+	var phys_params := PhysicsShapeQueryParameters2D.new()
+	phys_params.shape = $ItemPicker/CollisionShape2D.shape
+	phys_params.transform = $ItemPicker/CollisionShape2D.global_transform
+	phys_params.collision_mask = 4
 
-			var collide_points = space_state.collide_shape(phys_params, 128)
+	var collide_points := space_state.collide_shape(phys_params, 128)
 
-			var used_cells = {}
-			for it in collide_points:
-				var cell_coords = world.local_to_map(it)
-				if cell_coords not in used_cells:
-					used_cells[cell_coords] = null
-					var tile_hp = world.get_tile_hp(cell_coords)
-					if world.local_to_map(event.position) == cell_coords and tile_hp != -1 and energy >= tile_hp:
-						world.disrupt_tile(cell_coords)
-						energy -= tile_hp
-						break
-		
+	var used_cells := {}
+	for it in collide_points:
+		var cell_coords := world.local_to_map(it)
+		if cell_coords not in used_cells:
+			used_cells[cell_coords] = null
+			var tile_hp := world.get_tile_hp(cell_coords)
+			if world.local_to_map(event.position) == cell_coords and tile_hp != -1 and energy >= tile_hp:
+				world.disrupt_tile(cell_coords)
+				energy -= tile_hp
+				break
+
 		
 func drop_item(item: BaseItem):
 	item.global_position = global_position
@@ -78,3 +93,7 @@ func drop_item(item: BaseItem):
 func destroy_item(item: BaseItem):
 	stored_items.erase(item)
 	item.queue_free()
+	
+
+func use_item(item: BaseItem):
+	used_tool = item

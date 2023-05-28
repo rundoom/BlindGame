@@ -22,5 +22,5 @@ func hide_name():
 	$Name.hide()
 
 
-func activate():
+func activate(event: InputEvent):
 	pass

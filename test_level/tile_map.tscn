@@ -7537,32 +7537,32 @@ custom_data_layer_2/name = "icon"
 custom_data_layer_2/type = 24
 sources/0 = SubResource("TileSetAtlasSource_gukie")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hig6p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nl8d"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(79, 170, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3xupo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwyyc"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(79, 170, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tos5w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3jbt"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(79, 170, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vch0p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri60g"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(92, 209, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3lxjv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1jdu"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(14, 209, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r3pvi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_01bsw"]
 resource_local_to_scene = true
 atlas = ExtResource("1_4ovnk")
 region = Rect2(547, 274, 12, 12)
@@ -7579,30 +7579,30 @@ position = Vector2(179, 159)
 
 [node name="BaseItem" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(299, 206)
-image = SubResource("AtlasTexture_hig6p")
+image = SubResource("AtlasTexture_6nl8d")
 
 [node name="BaseItem2" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(533, 128)
 item_name = &"A bit of"
-image = SubResource("AtlasTexture_3xupo")
+image = SubResource("AtlasTexture_jwyyc")
 
 [node name="BaseItem3" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(435, 197)
 item_name = &"Something"
-image = SubResource("AtlasTexture_tos5w")
+image = SubResource("AtlasTexture_r3jbt")
 
 [node name="BaseItem4" parent="." instance=ExtResource("2_3l0hn")]
 position = Vector2(298, 234)
 item_name = &"TestItem"
-image = SubResource("AtlasTexture_vch0p")
+image = SubResource("AtlasTexture_ri60g")
 
 [node name="Food" parent="." instance=ExtResource("7_rs11y")]
 position = Vector2(531.894, 252.932)
-image = SubResource("AtlasTexture_3lxjv")
+image = SubResource("AtlasTexture_u1jdu")
 
 [node name="Tree" parent="." instance=ExtResource("8_moaej")]
 position = Vector2(229, 288)
 
 [node name="Axe" parent="." instance=ExtResource("9_y0p5i")]
 position = Vector2(383, 242)
-image = SubResource("AtlasTexture_r3pvi")
+image = SubResource("AtlasTexture_01bsw")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7rgs1j8cueln"]
 
-[ext_resource type="Script" path="res://character/ItemPresenter.gd" id="1_t60jd"]
+[ext_resource type="Script" path="res://character/ItemPresenter.gd" id="1_yclox"]
 [ext_resource type="Texture2D" uid="uid://yxjr8t2fqn24" path="res://urizen-onebit-tileset.png" id="2_e1ehs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ihxm"]
@@ -12,7 +12,7 @@ region = Rect2(79, 66, 12, 12)
 custom_minimum_size = Vector2(48, 48)
 offset_right = 12.0
 offset_bottom = 12.0
-script = ExtResource("1_t60jd")
+script = ExtResource("1_yclox")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 2

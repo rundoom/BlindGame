@@ -1,5 +1,5 @@
 extends BaseItem
 
 
-func activate():
+func activate(event: InputEvent):
 	player.energy = 10
