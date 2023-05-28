@@ -28,3 +28,5 @@ texture = SubResource("AtlasTexture_a6dra")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_1ened")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
